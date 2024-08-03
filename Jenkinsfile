@@ -10,7 +10,6 @@ pipeline {
                     eval $(ssh-agent -s) 
                     ssh-add /var/jenkins_home/private_key
                     ssh-add -l
-                    git clone git@github.com:huynhngocsonuit2000github/hello-jenkins.git
                     '''
                 }
             }
