@@ -10,6 +10,7 @@ pipeline {
                     eval $(ssh-agent -s) 
                     ssh-add /var/jenkins_home/private_key
                     ssh-add -l
+	 	    echo "haha"
                     '''
                 }
             }
