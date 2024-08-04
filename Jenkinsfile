@@ -58,7 +58,7 @@ pipeline {
                     sh "docker rm -f dotnet-hello-world || true"
                     
                     // Run the new container
-                    sh "docker run -d --name dotnet-hello-world -p 6000:80 ${env.IMAGE_NAME}"
+                    sh "docker run -d --name dotnet-hello-world -p 5001:80 ${env.IMAGE_NAME}"
                 }
             }
         }
