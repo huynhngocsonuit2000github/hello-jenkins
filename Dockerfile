@@ -3,11 +3,11 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /app
 
 # Copy the csproj file and restore any dependencies (via nuget)
-COPY *.csproj ./
+COPY src/*.csproj ./
 RUN dotnet restore
 
 # Copy the rest of the application code and build the application
-COPY . ./
+COPY src/. ./
 RUN dotnet publish -c Release -o out
 
 # Use the official ASP.NET Core runtime image to run the application
