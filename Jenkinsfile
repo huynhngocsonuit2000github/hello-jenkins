@@ -39,7 +39,7 @@ pipeline {
 	stage('Test push') {
             steps {
                 script {
-                    sh 'docker push ${env.REGISTRY}/${env.IMAGE_NAME}'
+                    sh "docker push ${env.REGISTRY}/${env.IMAGE_NAME}"
                 }
             }
         }
