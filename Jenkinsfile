@@ -36,18 +36,10 @@ pipeline {
     	    }
 	}
 
-	stage('Test push') {
-            steps {
-                script {
-                    sh "docker push ${env.REGISTRY}/${env.IMAGE_NAME}"
-                }
-            }
-        }
-
         stage('Push Docker Image') {
             steps {
                 script {
-                    docker.withRegistry("https://${env.REGISTRY}", "${env.DOCKER_CREDENTIAL_ID}") {
+                    docker.withRegistry("https://index.docker.io/v1/", "${env.DOCKER_CREDENTIAL_ID}") {
                         // Push the Docker image to the registry
                         sh "docker push ${env.REGISTRY}/${env.IMAGE_NAME}"
                     }
