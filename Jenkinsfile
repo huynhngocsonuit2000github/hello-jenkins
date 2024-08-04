@@ -23,9 +23,7 @@ pipeline {
             steps {
                 script {
                     // Build the Docker image
-                    dir('src') {
-                        sh 'docker build -t $REGISTRY/$IMAGE_NAME .'
-                    }
+                    sh 'docker build -t $REGISTRY/$IMAGE_NAME .'
                 }
             }
         }
