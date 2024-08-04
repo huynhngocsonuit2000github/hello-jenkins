@@ -50,7 +50,20 @@ pipeline {
                 }
             }
         }
+
+	stage('Deploy') {
+            steps {
+                script {
+                    // Remove any existing container with the same name
+                    sh "docker rm -f dotnet-hello-world || true"
+                    
+                    // Run the new container
+                    sh "docker run -d --name dotnet-hello-world -p 6000:80 ${env.IMAGE_NAME}"
+                }
+            }
+        }
     }
+
 
     post {
         always {
