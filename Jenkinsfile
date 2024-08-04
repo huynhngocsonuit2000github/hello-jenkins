@@ -3,11 +3,23 @@ pipeline {
 
     environment {
         REGISTRY = 'docker.io'
-        IMAGE_NAME = 'huynhngocsonuit2000docker/hello-world:v1'
+        IMAGE_NAME_BASE = 'huynhngocsonuit2000docker/hello-world'
         DOCKER_CREDENTIAL_ID = 'docker-us-pdw'
     }
 
     stages {
+
+	stage('Prepare') {
+            steps {
+                script {
+                    // Generate a unique image tag using the build number and timestamp
+                    env.IMAGE_TAG = "${env.BUILD_NUMBER}-${new Date().format('yyyyMMddHHmmss')}"
+                    env.IMAGE_NAME = "${env.IMAGE_NAME_BASE}:${env.IMAGE_TAG}"
+                }
+            }
+        }
+
+
         stage('Build') {
             steps {
                 script {
