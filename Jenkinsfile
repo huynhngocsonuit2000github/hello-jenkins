@@ -27,6 +27,14 @@ pipeline {
                 }
             }
         }
+		
+	stage('Docker Login') {
+    	    steps {
+        	script {
+            	    sh 'docker login -u huynhngocsonuit2000docker -p SOn01698182219 https://index.docker.io/v1/'
+        	}
+    	    }
+	}
 
         stage('Push Docker Image') {
             steps {
