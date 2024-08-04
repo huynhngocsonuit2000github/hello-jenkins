@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         REGISTRY = 'docker.io'
-        IMAGE_NAME = ‘huynhngocsonuit2000docker/hello-world:v1’
+        IMAGE_NAME = 'huynhngocsonuit2000docker/hello-world:v1'
         DOCKER_CREDENTIAL_ID = 'docker-us-pdw'
     }
 
